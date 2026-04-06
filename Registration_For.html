@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Registration</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+        .container {
+            width: 350px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .success {
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Bank Registration</h2>
+
+    <form onsubmit="return registerUser()">
+        Name:
+        <input type="text" id="name" required>
+
+        Email:
+        <input type="email" id="email" required>
+
+        Phone:
+        <input type="text" id="phone" required>
+
+        Account Type:
+        <select id="accountType">
+            <option>Savings</option>
+            <option>Current</option>
+        </select>
+
+        Password:
+        <input type="password" id="password" required>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <div id="message"></div>
+</div>
+
+<script>
+function registerUser() {
+
+    // Get values
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let accountType = document.getElementById("accountType").value;
+    let password = document.getElementById("password").value;
+
+    // Simple validation
+    if (phone.length != 10 || isNaN(phone)) {
+        alert("Phone must be 10 digits");
+        return false;
+    }
+
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters");
+        return false;
+    }
+
+    // Display success message
+    document.getElementById("message").innerHTML =
+        "<p class='success'>Registration Successful!</p>" +
+        "Name: " + name + "<br>" +
+        "Email: " + email + "<br>" +
+        "Phone: " + phone + "<br>" +
+        "Account Type: " + accountType;
+
+    return false; // prevent page reload
+}
+</script>
+
+</body>
+</html>
