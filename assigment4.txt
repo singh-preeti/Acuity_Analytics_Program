@@ -1,0 +1,16 @@
+Requirements (Must Use ES6 Features):
+Use class to create a BankAccount class
+Use constructor to initialize account details (name, balance)
+Use let & const appropriately
+Implement methods:
+deposit(amount)
+withdraw(amount)
+transfer(targetAccount, amount)
+Use arrow functions for at least one method
+Use template literals for printing account details
+Maintain transactions using arrays
+Use spread operator to copy or merge transaction lists
+Use destructuring to extract account details
+Use default parameters in functions (e.g., default deposit = 100)
+Use spread operator to handle multiple transactions
+Use map  forEach on transaction history
