@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <title>Registration Form</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e0f2fe, #f0fdf4);
+      min-height: 100vh;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 35px 40px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #1e3a5f;
+      margin-bottom: 25px;
+      font-size: 1.7rem;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1.5px solid #ccc;
+      border-radius: 7px;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: #3b82f6;
+    }
+
+    .error {
+      color: #dc2626;
+      font-size: 0.8rem;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .row {
+      display: flex;
+      gap: 16px;
+    }
+
+    .row .form-group { flex: 1; }
+
+    .radio-group, .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 5px;
+    }
+
+    .radio-group label, .checkbox-group label {
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    input[type="radio"], input[type="checkbox"] {
+      accent-color: #3b82f6;
+      width: 16px;
+      height: 16px;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 11px;
+      background: #1e3a5f;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+
+    button[type="submit"]:hover { background: #2563eb; }
+
+    /* Result Card */
+    #result {
+      display: none;
+      margin-top: 30px;
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      border-radius: 10px;
+      padding: 25px 30px;
+    }
+
+    #result h3 {
+      color: #166534;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      row-gap: 10px;
+      font-size: 0.92rem;
+    }
+
+    .result-grid .key {
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .result-grid .val {
+      color: #1f2937;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2> Registration Form</h2>
+
+  <form id="regForm" novalidate>
+
+    <!-- Name -->
+    <div class="row">
+      <div class="form-group">
+        <label for="firstName">First Name *</label>
+        <input type="text" id="firstName" placeholder="e.g. Prashil" />
+        <span class="error" id="firstNameErr">Enter a valid first name (letters only).</span>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name *</label>
+        <input type="text" id="lastName" placeholder="e.g. Singh" />
+        <span class="error" id="lastNameErr">Enter a valid last name (letters only).</span>
+      </div>
+    </div>
+
+    <!-- Email & Phone -->
+    <div class="row">
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" placeholder="you@example.com" />
+        <span class="error" id="emailErr">Enter a valid email address.</span>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" placeholder="10-digit number" maxlength="10" />
+        <span class="error" id="phoneErr">Enter a valid 10-digit phone number.</span>
+      </div>
+    </div>
+
+    <!-- City & State -->
+    <div class="row">
+      <div class="form-group">
+        <label for="city">City *</label>
+        <select id="city">
+          <option value="">-- Select City --</option>
+          <option>Mumbai</option>
+          <option>Delhi</option>
+          <option>Bengaluru</option>
+          <option>Hyderabad</option>
+          <option>Chennai</option>
+          <option>Kolkata</option>
+          <option>Pune</option>
+          <option>Ahmedabad</option>
+          <option>Jaipur</option>
+          <option>Surat</option>
+          <option>Lucknow</option>
+          <option>Chandigarh</option>
+        </select>
+        <span class="error" id="cityErr">Please select a city.</span>
+      </div>
+      <div class="form-group">
+        <label for="state">State *</label>
+        <select id="state">
+          <option value="">-- Select State --</option>
+          <option>Maharashtra</option>
+          <option>Delhi</option>
+          <option>Karnataka</option>
+          <option>Telangana</option>
+          <option>Tamil Nadu</option>
+          <option>West Bengal</option>
+          <option>Gujarat</option>
+          <option>Rajasthan</option>
+          <option>Uttar Pradesh</option>
+          <option>Punjab</option>
+        </select>
+        <span class="error" id="stateErr">Please select a state.</span>
+      </div>
+    </div>
+
+    <!-- Gender -->
+    <div class="form-group">
+      <label>Gender *</label>
+      <div class="radio-group">
+        <label><input type="radio" name="gender" value="Male" /> Male</label>
+        <label><input type="radio" name="gender" value="Female" /> Female</label>
+        <label><input type="radio" name="gender" value="Non-binary" /> Non-binary</label>
+        <label><input type="radio" name="gender" value="Prefer not to say" /> Prefer not to say</label>
+      </div>
+      <span class="error" id="genderErr">Please select a gender.</span>
+    </div>
+
+    <!-- Qualification -->
+    <div class="form-group">
+      <label for="qualification">Highest Qualification *</label>
+      <select id="qualification">
+        <option value="">-- Select --</option>
+        <option>High School</option>
+        <option>Diploma</option>
+        <option>Bachelor's Degree</option>
+        <option>Master's Degree</option>
+        <option>PhD</option>
+      </select>
+      <span class="error" id="qualErr">Please select your qualification.</span>
+    </div>
+
+    <!-- Interests (Checkboxes) -->
+    <div class="form-group">
+      <label>Interests / Hobbies * (select at least one)</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="interest" value="Technology" /> Technology</label>
+        <label><input type="checkbox" name="interest" value="Sports" /> Sports</label>
+        <label><input type="checkbox" name="interest" value="Music" /> Music</label>
+        <label><input type="checkbox" name="interest" value="Travel" /> Travel</label>
+        <label><input type="checkbox" name="interest" value="Reading" /> Reading</label>
+        <label><input type="checkbox" name="interest" value="Cooking" /> Cooking</label>
+        <label><input type="checkbox" name="interest" value="Art & Design" /> Art & Design</label>
+      </div>
+      <span class="error" id="interestErr">Please select at least one interest.</span>
+    </div>
+
+    <!-- Terms -->
+    <div class="form-group">
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" id="terms" />
+          I agree to the Terms &amp; Conditions *
+        </label>
+      </div>
+      <span class="error" id="termsErr">You must agree to the terms.</span>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Result Display -->
+  <div id="result">
+    <h3>✅ Registration Successful!</h3>
+    <div class="result-grid" id="resultGrid"></div>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('regForm');
+
+  function showError(id, show) {
+    document.getElementById(id).style.display = show ? 'block' : 'none';
+  }
+
+  function isAlpha(val) { return /^[A-Za-z\s]+$/.test(val.trim()); }
+  function isEmail(val) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim()); }
+  function isPhone(val) { return /^\d{10}$/.test(val.trim()); }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    let valid = true;
+
+    const firstName = document.getElementById('firstName').value;
+    const lastName  = document.getElementById('lastName').value;
+    const email     = document.getElementById('email').value;
+    const phone     = document.getElementById('phone').value;
+    const city      = document.getElementById('city').value;
+    const state     = document.getElementById('state').value;
+    const gender    = document.querySelector('input[name="gender"]:checked');
+    const qual      = document.getElementById('qualification').value;
+    const interests = [...document.querySelectorAll('input[name="interest"]:checked')].map(c => c.value);
+    const terms     = document.getElementById('terms').checked;
+
+    const checks = [
+      ['firstNameErr',  !isAlpha(firstName) || firstName.trim() === ''],
+      ['lastNameErr',   !isAlpha(lastName)  || lastName.trim() === ''],
+      ['emailErr',      !isEmail(email)],
+      ['phoneErr',      !isPhone(phone)],
+      ['cityErr',       city === ''],
+      ['stateErr',      state === ''],
+      ['genderErr',     !gender],
+      ['qualErr',       qual === ''],
+      ['interestErr',   interests.length === 0],
+      ['termsErr',      !terms],
+    ];
+
+    checks.forEach(([id, hasError]) => {
+      showError(id, hasError);
+      if (hasError) valid = false;
+    });
+
+    if (!valid) return;
+
+    // Build result
+    const data = {
+      'First Name':     firstName.trim(),
+      'Last Name':      lastName.trim(),
+      'Email':          email.trim(),
+      'Phone':          phone.trim(),
+      'City':           city,
+      'State':          state,
+      'Gender':         gender.value,
+      'Qualification':  qual,
+      'Interests':      interests.join(', '),
+    };
+
+    const grid = document.getElementById('resultGrid');
+    grid.innerHTML = Object.entries(data)
+      .map(([k, v]) => `<div class="key">${k}</div><div class="val">${v}</div>`)
+      .join('');
+
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
