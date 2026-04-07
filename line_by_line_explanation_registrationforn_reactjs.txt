@@ -1,0 +1,147 @@
+1. Import Statements
+import React, { Component } from "react";
+Imports React library
+Component is used to create a class component
+2. Class Declaration
+class BankRegistration extends Component {
+Creates a class named BankRegistration
+It extends Component, so it becomes a React component
+3. Constructor
+constructor() {
+Special method that runs first when component loads
+super();
+Calls parent class (Component) constructor
+Required before using this
+4. State Initialization
+this.state = {
+Creates state object to store data
+name: "",
+Stores user name
+email: "",
+Stores user email
+phone: "",
+Stores phone number
+accountType: "",
+Stores selected account type
+submittedData: null
+Will store final submitted data
+};
+Ends state object
+}
+Ends constructor
+5. handleChange Function
+handleChange = (event) => {
+Function triggered when user types or changes input
+this.setState({
+Updates the state
+[event.target.name]: event.target.value
+Gets input field name (like name, email)
+Gets value typed by user
+Updates that specific field dynamically
+});
+Ends setState
+};
+Ends function
+6. handleSubmit Function
+handleSubmit = (event) => {
+Runs when form is submitted
+event.preventDefault();
+Prevents page reload
+this.setState({
+Updates state
+submittedData: {
+Stores submitted form data in an object
+name: this.state.name,
+Takes name from state
+email: this.state.email,
+Takes email from state
+phone: this.state.phone,
+Takes phone from state
+accountType: this.state.accountType
+Takes account type from state
+}
+Ends object
+});
+Ends setState
+};
+Ends function
+7. render Method
+render() {
+Required method in class component
+Returns UI
+8. Main Container
+<div style={{ textAlign: "center", marginTop: "30px" }}>
+Main container with inline styling
+<h2>Bank Registration Form</h2>
+Heading
+9. Form Start
+<form onSubmit={this.handleSubmit}>
+Form element
+Calls handleSubmit on submit
+10. Name Input
+<input
+type="text" → text input
+name="name" → used in state update
+placeholder="Enter Name" → hint text
+onChange={this.handleChange} → calls handleChange
+/>
+11. Line Break
+<br />
+Adds space
+12. Email Input
+Same structure as name input
+type="email"
+name="email"
+13. Phone Input
+Same structure
+type="text"
+name="phone"
+14. Account Type Dropdown
+<select name="accountType" onChange={this.handleChange}>
+Dropdown for account type
+<option value="">Select Account Type</option>
+Default option
+<option value="Savings">Savings</option>
+Savings option
+<option value="Current">Current</option>
+Current option
+</select>
+15. Submit Button
+<button type="submit">Submit</button>
+Submits form
+16. Form End
+</form>
+17. Conditional Rendering
+{this.state.submittedData && (
+Checks if data exists
+If yes → display details
+18. Display Section
+<div style={{ marginTop: "30px" }}>
+Container for output
+<h3>Submitted Details</h3>
+Heading
+19. Showing Data
+<p><b>Name:</b> {this.state.submittedData.name}</p>
+Displays name
+<p><b>Email:</b> {this.state.submittedData.email}</p>
+Displays email
+<p><b>Phone:</b> {this.state.submittedData.phone}</p>
+Displays phone
+<p><b>Account Type:</b> {this.state.submittedData.accountType}</p>
+Displays account type
+20. Closing Tags
+</div>
+)}
+Ends conditional rendering
+</div>
+Ends main container
+);
+Ends return
+}
+Ends render method
+21. Class End
+}
+Ends class
+22. Export
+export default BankRegistration;
+Makes component usable in other files
