@@ -1,0 +1,11 @@
+customer_id,customer_name,account_type,amount,transaction_type,transaction_date
+1,rahul,savings,25000,deposit,01/02/2024
+2,neha,current,40000,withdrawal,15/02/2024
+3,amit,savings,15000,deposit,20/03/2024
+4,priya,loan,50000,payment,05/01/2024
+5,rohit,savings,30000,withdrawal,10/03/2024
+6,kavya,current,45000,deposit,18/02/2024
+7,arjun,loan,60000,payment,25/01/2024
+8,meera,savings,28000,deposit,12/03/2024
+9,vikas,current,35000,withdrawal,28/02/2024
+10,sneha,savings,22000,deposit,08/03/2024
