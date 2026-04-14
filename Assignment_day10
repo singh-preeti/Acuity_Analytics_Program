@@ -1,0 +1,10 @@
+Import the banking dataset into Microsoft Power BI.
+Verify and correct data types (especially date and numeric fields).
+Create a Clustered Column Chart for branch-wise transaction amount.
+Build a Pie Chart to show distribution of transaction types.
+Create a Line Chart to visualize monthly transaction trends.
+Add a Table Visual showing customer_id, amount, and branch.
+Use a Slicer for account type to enable filtering.
+Create a Donut Chart for account type distribution.
+Add a Stacked Bar Chart for branch vs transaction type comparison.
+Write 3 key insights based on the dashboard visuals.
